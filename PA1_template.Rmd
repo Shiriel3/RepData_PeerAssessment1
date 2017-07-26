@@ -53,7 +53,9 @@ Calculate and report the total number of missing values in the dataset (i.e. the
 sum(is.na(data$steps))
 ```  
 
-Create a new dataset that is equal to the original dataset but with the missing data filled in.
+Create a new dataset that is equal to the original dataset but with the missing data filled in.  
+
+For the missing values we are replacing them with their respective interval equivalents to the mean of that interval, across all days, which we calculated above.
 ```{R}
 mod <- data
 mod$steps <- as.numeric(apply(mod, 1, function(i) {
